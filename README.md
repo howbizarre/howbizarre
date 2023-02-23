@@ -1,4 +1,6 @@
-### Be my guests 🐼
+### Be my guests 🍻
+
+![I am a Front-end Senpai, who strictly follows the W3Code of Bushido](https://github.com/howbizarre/howbizarre/blob/bb40a25ded6303fb36237b8036385137149e0617/samurai.jpg "I am a Front-end Senpai, who strictly follows the W3Code of Bushido!")
 
 <!--
 **howbizarre/howbizarre** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

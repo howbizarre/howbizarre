@@ -2,13 +2,13 @@
   "name": "howbizarre",
   "version": "1.0.1",
   "description": "As known as How Bizarre",
-  "author": "kobizarre.how",
+  "author": "bizarre.how",
   "license": "CC-BY-4.0",
   "scripts": {
-    "build": "parcel build src/index.html --no-source-maps --dist-dir output --public-url ./",
+    "build": "parcel build src/index.html --dist-dir output --public-url ./",
     "dev": "parcel serve src/index.html",
     "start": "npm run build && npm run dev",
-    "bld": "parcel build src/index.html --no-source-maps --public-url ./"
+    "howbizarre": "parcel build src/index.html --no-source-maps --public-url ./"
   },
   "devDependencies": {
     "parcel": "^2.8.3",

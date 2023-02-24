@@ -5,6 +5,10 @@ module.exports = {
     "./src/**/*.{html,js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      "serif": ["Merriweather", "serif"],
+      "cursive": ["Yatra One", "cursive"]
+    },
     extend: {},
   },
   plugins: [],

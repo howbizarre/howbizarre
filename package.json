@@ -1,0 +1,17 @@
+{
+  "name": "howbizarre",
+  "version": "1.0.1",
+  "description": "As known as How Bizarre",
+  "author": "kobizarre.how",
+  "license": "CC-BY-4.0",
+  "scripts": {
+    "build": "parcel build src/index.html --no-source-maps --dist-dir output --public-url ./",
+    "dev": "parcel serve src/index.html",
+    "start": "npm run build && npm run dev"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
+  }
+}

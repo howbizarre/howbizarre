@@ -7,7 +7,8 @@
   "scripts": {
     "build": "parcel build src/index.html --no-source-maps --dist-dir output --public-url ./",
     "dev": "parcel serve src/index.html",
-    "start": "npm run build && npm run dev"
+    "start": "npm run build && npm run dev",
+    "bld": "parcel build src/index.html --no-source-maps --public-url ./"
   },
   "devDependencies": {
     "parcel": "^2.8.3",

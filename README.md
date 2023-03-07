@@ -1,4 +1,6 @@
-### Be my guests 🍻
+### Be my guests :wave:
+
+Grab yourself a :beer:, [buy one :beer:](https://www.paypal.com/donate/?hosted_button_id=RCUKNHLL35ZZS) for me, and come sit down.
 
 <!--
 **howbizarre/howbizarre** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

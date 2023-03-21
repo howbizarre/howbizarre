@@ -52,5 +52,5 @@ themeToggleBtn.addEventListener("click", function () {
 
 console.group("How Bizarre");
 console.info("- I am a Front-end Senpai, who strictly follows the W3Code of Bushido!");
-console.info("- I know everything back from WEB (without numbers) till the WEB 5 and I will keep counting :o)");
+console.info("- Use link https://www.paypal.com/donate/?hosted_button_id=RCUKNHLL35ZZS to send me a beer.");
 console.groupEnd();

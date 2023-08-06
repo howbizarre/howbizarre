@@ -1,6 +1,3 @@
-import LogRocket from "logrocket";
-LogRocket.init("otvweo/bizarrehow");
-
 const docElm = document.documentElement;
 const themeToggleBtn = docElm.querySelector("#theme-toggle");
 const darkIcon = themeToggleBtn.querySelector("#dark-icon");

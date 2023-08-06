@@ -23,4 +23,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: ./build
+          cname: howbizarre.github.io
+          user_name: howbizarre
+          user_email: howbizarre@gmail.com

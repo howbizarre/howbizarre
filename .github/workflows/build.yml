@@ -21,13 +21,14 @@ jobs:
 
       - name: Copy build files to GitHub Pages repository
         run: |
-          mkdir -p ../howbizarre.github.io/
           cp -r output/* ../howbizarre.github.io/
           cd ../howbizarre.github.io/
+          git init
           git config --global user.email "howbizarre@gmail.com"
           git config --global user.name "howbizarre"
           git add .
           git commit -m "Update build files"
-          git push origin main
+          git remote add origin https://github.com/howbizarre/howbizarre.github.io.git
+          git push -u origin main
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}

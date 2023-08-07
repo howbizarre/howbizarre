@@ -30,6 +30,8 @@ jobs:
           git add .
           git commit -m "Update build files"
           git remote add origin https://github.com/howbizarre/howbizarre.github.io.git
+          git push -u origin master
+          git branch -m main
           git push -u origin main
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}

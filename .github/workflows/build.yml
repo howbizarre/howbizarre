@@ -3,10 +3,10 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main # replace with the name of your main branch
+      - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,18 +19,14 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Add SSH key
+      - name: Copy build files to GitHub Pages repository
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          cname: howbizarre.github.io
-          user_name: howbizarre
-          user_email: howbizarre@gmail.com
+          cp -r build/* ../howbizarre.github.io/
+          cd ../howbizarre.github.io/
+          git config --global user.email "howbizarre@gmail.com"
+          git config --global user.name "howbizarre"
+          git add .
+          git commit -m "Update build files"
+          git push origin main
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}

@@ -3,16 +3,15 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main  # Adjust the branch name as needed
+      - main  # Adjust the branch name if needed
 
 jobs:
-  build_and_deploy:
+  build-deploy:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@main
-
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
       - name: Set Up SSH Key
         run: |
           mkdir -p ~/.ssh
@@ -20,32 +19,27 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
       
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'  # Adjust the Node.js version as needed
-      
-      - name: Install dependencies and build
+      - name: Build Source
         run: |
-          npm install
-          npm run build
+          # Add your build commands here
+          # For example:
+          # npm install
+          # npm run build
       
-      - name: Copy built files to howbizarre.github.io
+      - name: Copy Files to Deploy Repo
         run: |
-          # Clone the howbizarre.github.io repository
-          git clone https://github.com/howbizarre/howbizarre.github.io.git deploy
-          
-          # Copy the built files to the root of the deploy directory
-          cp -r output/* deploy/
-          
-          # Commit and push changes
-          cd deploy
-          git config --local user.email "howbizarre@gmail.com"
-          git config --local user.name "howbizarre"
+          # Copy the build artifacts to your deploy repository
+          cp -r build/. ../howbizarre.github.io
+          cd ../howbizarre.github.io
+          git config user.name "Your Username"
+          git config user.email "your_email@example.com"
           git add .
-          git commit -m "Update built files"
+          git commit -m "Auto-generated build update"
           git push origin main
-        
-      - name: Clean up
+      
+      - name: Clean Up
         run: |
-          rm -rf deploy
+          # Clean up build artifacts
+          rm -rf build
+          cd ../howbizarre.github.io
+          rm -rf *

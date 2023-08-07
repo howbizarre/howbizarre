@@ -27,7 +27,7 @@ jobs:
       - name: Copy Files to Deploy Repo
         run: |
           # Copy the build artifacts to your deploy repository
-          cp -r build/. ../howbizarre.github.io
+          cp -r output/. ../howbizarre.github.io
           cd ../howbizarre.github.io
           git config user.name "How Bizarre"
           git config user.email "howbizarre@gmail.com"

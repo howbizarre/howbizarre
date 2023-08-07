@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main  # Adjust the branch name as needed
+      - main
 
 jobs:
   build_and_deploy:
@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Adjust the Node.js version as needed
+          node-version: '16'
       
       - name: Install dependencies and build
         run: |
@@ -36,7 +36,7 @@ jobs:
           git clone git@github.com:howbizarre/howbizarre.github.io.git deploy
           
           # Copy the built files to the root of the deploy directory
-          cp -r output/* deploy/
+          cp -r dist/* deploy/
           
           # Commit and push changes
           cd deploy

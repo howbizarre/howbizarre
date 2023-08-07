@@ -21,18 +21,16 @@ jobs:
       
       - name: Build Source
         run: |
-          # Add your build commands here
-          # For example:
-          # npm install
-          # npm run build
+          npm install
+          npm run build
       
       - name: Copy Files to Deploy Repo
         run: |
           # Copy the build artifacts to your deploy repository
           cp -r build/. ../howbizarre.github.io
           cd ../howbizarre.github.io
-          git config user.name "Your Username"
-          git config user.email "your_email@example.com"
+          git config user.name "How Bizarre"
+          git config user.email "howbizarre@gmail.com"
           git add .
           git commit -m "Auto-generated build update"
           git push origin main

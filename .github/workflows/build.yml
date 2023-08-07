@@ -3,15 +3,16 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main  # Adjust the branch name if needed
+      - main  # Adjust the branch name as needed
 
 jobs:
-  build-deploy:
+  build_and_deploy:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      
+      - name: Checkout code
+        uses: actions/checkout@main
+
       - name: Set Up SSH Key
         run: |
           mkdir -p ~/.ssh
@@ -19,25 +20,32 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
       
-      - name: Build Source
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Adjust the Node.js version as needed
+      
+      - name: Install dependencies and build
         run: |
           npm install
           npm run build
       
-      - name: Copy Files to Deploy Repo
+      - name: Copy built files to howbizarre.github.io
         run: |
-          # Copy the build artifacts to your deploy repository
-          cp -r output/. ../howbizarre.github.io
-          cd ../howbizarre.github.io
-          git config user.name "How Bizarre"
-          git config user.email "howbizarre@gmail.com"
+          # Clone the howbizarre.github.io repository
+          git clone https://github.com/howbizarre/howbizarre.github.io.git deploy
+          
+          # Copy the built files to the root of the deploy directory
+          cp -r output/* deploy/
+          
+          # Commit and push changes
+          cd deploy
+          git config --local user.email "howbizarre@gmail.com"
+          git config --local user.name "How Bizarre"
           git add .
-          git commit -m "Auto-generated build update"
+          git commit -m "Update built files"
           git push origin main
-      
-      - name: Clean Up
+        
+      - name: Clean up
         run: |
-          # Clean up build artifacts
-          rm -rf build
-          cd ../howbizarre.github.io
-          rm -rf *
+          rm -rf deploy

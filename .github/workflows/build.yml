@@ -3,35 +3,42 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main
+      - main  # Adjust the branch name as needed
 
 jobs:
-  build-and-deploy:
+  build_and_deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Copy build files to GitHub Pages repository
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'  # Adjust the Node.js version as needed
+      
+      - name: Install dependencies and build
         run: |
-          mkdir -p ../howbizarre.github.io/
-          cp -r output/* ../howbizarre.github.io/
-          cd ../howbizarre.github.io/
-          git init
-          git config --global user.email "howbizarre@gmail.com"
-          git config --global user.name "howbizarre"
+          npm install
+          npm run build
+      
+      - name: Copy built files to howbizarre.github.io
+        run: |
+          # Clone the howbizarre.github.io repository
+          git clone https://github.com/howbizarre/howbizarre.github.io.git deploy
+          
+          # Copy the built files to the root of the deploy directory
+          cp -r output/* deploy/
+          
+          # Commit and push changes
+          cd deploy
+          git config --local user.email "howbizarre@gmail.com"
+          git config --local user.name "howbizarre"
           git add .
-          git commit -m "Update build files"
-          git remote add origin https://github.com/howbizarre/howbizarre.github.io.git
-          git push -u origin master
-          git branch -m main
-          git push -u origin main
-        env:
-          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          git commit -m "Update built files"
+          git push origin main
+        
+      - name: Clean up
+        run: |
+          rm -rf deploy

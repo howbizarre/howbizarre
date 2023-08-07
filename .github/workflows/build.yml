@@ -32,16 +32,16 @@ jobs:
       
       - name: Copy built files to howbizarre.github.io
         run: |
-          # Clone the howbizarre.github.io repository
-          git clone https://github.com/howbizarre/howbizarre.github.io.git deploy
+          # Clone the howbizarre.github.io repository using SSH URL
+          git clone git@github.com:howbizarre/howbizarre.github.io.git deploy
           
           # Copy the built files to the root of the deploy directory
           cp -r output/* deploy/
           
           # Commit and push changes
           cd deploy
-          git config --local user.email "howbizarre@gmail.com"
-          git config --local user.name "How Bizarre"
+          git config user.email "howbizarre@gmail.com"
+          git config user.name "How Bizarre"
           git add .
           git commit -m "Update built files"
           git push origin main

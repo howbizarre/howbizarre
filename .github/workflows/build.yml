@@ -36,7 +36,7 @@ jobs:
           git clone git@github.com:howbizarre/howbizarre.github.io.git deploy
           
           # Copy the built files to the root of the deploy directory
-          cp -r dist/* deploy/
+          cp -r output/* deploy/
           
           # Commit and push changes
           cd deploy

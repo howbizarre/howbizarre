@@ -1,8 +1,7 @@
 .history
 .parcel-cache
 dist
+cache
 node_modules
 output
 .vscode
-.vitepress/dist
-.vitepress/cache

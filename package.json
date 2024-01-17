@@ -11,8 +11,8 @@
     "howbizarre": "parcel build src/index.html --no-source-maps --public-url ./"
   },
   "devDependencies": {
-    "parcel": "^2.8.3",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.7"
+    "parcel": "^2.11.0",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1"
   }
 }

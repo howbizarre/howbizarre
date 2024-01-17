@@ -4,5 +4,3 @@ dist
 node_modules
 output
 .vscode
-.vitepress/dist
-.vitepress/cache

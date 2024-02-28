@@ -80,12 +80,9 @@ body {
   @apply mb-0 text-black dark:text-white font-thin;
 }
 
-.github {
-  @apply absolute left-[22px] bottom-[59px] -z-[1] hover:z-20;
-}
-
-.linkedin {
-  @apply absolute left-[22px] bottom-[22px] -z-[1] hover:z-20;
+.hbsarticles {
+  @apply absolute left-[30px] bottom-[25px] -z-[1] hover:z-20 transition-all duration-300
+         w-[30px] h-[30px] bg-white rounded-full shadow-lg flex items-center justify-center;
 }
 
 .howbizarre:hover .vc,

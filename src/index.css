@@ -81,8 +81,9 @@ body {
 }
 
 .hbsarticles {
-  @apply absolute left-[30px] bottom-[25px] -z-[1] hover:z-20 transition-all duration-300
-         w-[30px] h-[30px] bg-white rounded-full shadow-lg flex items-center justify-center;
+  @apply absolute left-[23px] bottom-[25px] -z-[1] hover:z-20 transition-all duration-300
+         w-[30px] h-[30px] hover:w-[34px] hover:h-[34px] hover:left-[21px] text-lg hover:text-xl
+         rounded-full shadow-lg flex items-center justify-center bg-white;
 }
 
 .howbizarre:hover .vc,

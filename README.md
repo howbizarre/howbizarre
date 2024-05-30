@@ -6,7 +6,7 @@ Grab yourself a :beer:, [buy one :beer:](https://www.paypal.com/donate/?hosted_b
 
 ### Some projects' URLs from my repositories
 
-[**Mentha**](https://zavaluce.it/en-us) is a simple Nuxt template to start a blog.
+[**Mentha**](https://mentha.bizarre.how/) is a simple Nuxt template to start a blog.
 
 [**Vue 3 & Bootstrap 5**](https://bizarre.how/vue-bootstrap/) starter template with SASS, Dark Theme support and Typescript.
 

@@ -19,11 +19,11 @@
 
 	<text x="1111" y="595"
 		  font-family="Roboto, system-ui, -apple-system, Segoe UI, Arial, sans-serif"
-		  font-size="18" font-weight="200"
+		  font-size="18" font-weight="400"
 		  text-anchor="end"
 		  fill="#ffffff"
 		  stroke="#000000" stroke-width="0.5" paint-order="stroke fill">
 	  <tspan x="349" dy="0">- What do you see in <tspan font-weight="700">FRONT</tspan>?</tspan>
-	  <tspan x="208" dy="1.5em">- My <tspan font-weight="700">END</tspan>!!!</tspan>
+	  <tspan x="208" dy="1.5em">- The <tspan font-weight="700">END</tspan>!!!</tspan>
 	</text>
 </svg>
